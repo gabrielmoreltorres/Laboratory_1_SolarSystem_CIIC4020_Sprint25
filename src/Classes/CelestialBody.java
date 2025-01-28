@@ -7,8 +7,17 @@ package Classes;
  *
  */
 public interface CelestialBody {
-	/*TODO ADD THE FOLLOWING:
-	 * GETTERS, 
-	 * SETTERS, 
-	 */
+	//TODO ADD THE FOLLOWING:
+	//GETTERS
+	public double getMass();
+	public double getRadius();
+	public String getName();
+	public int[] getCordinates();
+
+	//SETTERS
+	public double setMass(double mass);
+	public double setRadius(double radius);
+	public String setName(String name);
+	public int[] setCordinates(int[] coordinates);
+
 }
