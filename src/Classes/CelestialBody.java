@@ -9,15 +9,15 @@ package Classes;
 public interface CelestialBody {
 	//TODO ADD THE FOLLOWING:
 	//GETTERS
-	public double getMass();
-	public double getRadius();
-	public String getName();
-	public int[] getCordinates();
+	double getMass();
+	double getRadius();
+	String getName();
+	int[] getCoordinates();
 
 	//SETTERS
-	public double setMass(double mass);
-	public double setRadius(double radius);
-	public String setName(String name);
-	public int[] setCordinates(int[] coordinates);
+	void setMass(double mass);
+	void setRadius(double radius);
+	void setName(String name);
+	void setCoordinates(int[] coordinates);
 
 }
