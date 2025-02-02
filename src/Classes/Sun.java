@@ -5,6 +5,9 @@ package Classes;
  * The Sun has properties such as mass, radius, coordinates, and name. 
  * Additionally, this class provides a static reference to an image of the Sun.
  */
+
+ //Pull request test
+
 public class Sun /*TODO*/ {
 
 	/**
