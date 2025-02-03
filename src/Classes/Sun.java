@@ -18,7 +18,7 @@ public class Sun implements CelestialBody /*TODO*/ {
 
 	//TODO ADD THE FOLLOWING:
 	//PRIVATE FIELDS
-	private String name = "Sun";
+	private String name;
 	private double mass;
 	private double radius;
 	private int[] coordinates;
@@ -28,13 +28,33 @@ public class Sun implements CelestialBody /*TODO*/ {
 		if(sunMass <= 0 || sunRadius <= 0){
 			throw new IllegalArgumentException("Mass or Radius cannot be negative");
 		}
-		if(sunCoordinates.length < 2 || sunCoordinates.length > 2){
+		if(sunCoordinates.length != 2){
 			throw new IllegalArgumentException("Only provide X and Y coordinates");
 		}
-		mass = sunMass;
-		radius = sunRadius;
-		coordinates = sunCoordinates;
+		else if(sunCoordinates == null){
+			throw new NullPointerException("Provide coordinates");
+		}
+		this.mass = sunMass;
+		this.radius = sunRadius;
+		this.coordinates = sunCoordinates;
+		this.name = "Sun";
 	}
+
+	public Sun(double mass, double radius) {
+		if (mass <= 0) {
+			throw new IllegalArgumentException("Mass must be positive.");
+		}
+		if (radius <= 0) {
+			throw new IllegalArgumentException("Radius must be positive.");
+		}
+
+		int[] coordinates = {0, 0};
+	
+		this.mass = mass;
+		this.radius = radius;
+		this.coordinates = coordinates;
+		this.name = "Sun";
+		}
 
 	//GETTERS,
 	public double getMass(){
@@ -68,7 +88,7 @@ public class Sun implements CelestialBody /*TODO*/ {
 			this.radius = radius;
 		}
 		else{
-			throw new IllegalArgumentException("Radius cannot be negative")
+			throw new IllegalArgumentException("Radius cannot be negative");
 		}
 	}
 
@@ -80,13 +100,14 @@ public class Sun implements CelestialBody /*TODO*/ {
 		if(sunCoordinates.length != 2){
 			throw new IllegalArgumentException("Only provide X and Y coordinates");
 		}
+		else if(sunCoordinates==null){
+			throw new NullPointerException("Please provide coordinates");
+		}
 		else{
 			this.coordinates = sunCoordinates;
 		}
 	}
 	
-
-
 	/**
 	 * Retrieves the file path to the image of the Sun.
 	 * 
