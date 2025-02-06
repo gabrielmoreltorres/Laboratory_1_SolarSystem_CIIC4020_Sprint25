@@ -31,11 +31,25 @@ public abstract class Planet implements CelestialBody {
         
         /*TODO add your solution here*/
         
+        if (sunMass <= 0) {
+            throw new IllegalArgumentException("Sun Mass must be positive.");
+        }
+        if (this.getPosition()==null || sunPosition == null || position.length != 2 || sunPosition.length !=2) {
+            throw new IllegalArgumentException("Position must be a non-null array of two elements.");
+        }
+
+        double dx = sunPosition[0]-this.position[0];
+        double dy = sunPosition[1]-this.position[1];
+
         /*TODO Calculate the distance between the Sun and the Planet*/
+        double distance = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2));
 
         /*TODO Calculate the gravitational force*/
+        double gravForce = (GRAVITATIONAL_CONSTANT*this.getMass()*sunMass)/Math.pow(distance, 2);
 
         /*TODO Calculate the acceleration*/
+        double ax = gravForce*(dx/distance)/this.getMass();
+        double ay = gravForce*(dy/distance)/this.getMass();
 
         // Update velocity
         velocity[0] += ax * timeStep;
@@ -44,6 +58,7 @@ public abstract class Planet implements CelestialBody {
         // Update position
         position[0] += velocity[0] * timeStep;
         position[1] += velocity[1] * timeStep;
+
 
         // Update screen coordinates (for rendering)
         coordinates[0] = (int) position[0];
