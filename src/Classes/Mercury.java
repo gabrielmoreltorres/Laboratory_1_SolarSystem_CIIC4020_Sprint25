@@ -6,7 +6,7 @@ package Classes;
  * 
  */
 
-public class Mercury /*TODO*/ {
+public class Mercury extends Planet /*TODO*/ {
 
     private static final String MERCURY_IMAGE = "./src/resources/Mercury.png";
 
@@ -26,6 +26,7 @@ public class Mercury /*TODO*/ {
          * TODO Add your solution here
          * Hint: Lookup the keyword Super
          * */
+        super(MERCURY_IMAGE, mass, radius, position, velocity);
     }
 
     /**
