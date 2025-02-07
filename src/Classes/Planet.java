@@ -51,6 +51,9 @@ public abstract class Planet implements CelestialBody {
         double ax = gravForce*(dx/distance)/this.getMass();
         double ay = gravForce*(dy/distance)/this.getMass();
 
+        acceleration[0] = ax;
+        acceleration[1] = ay;
+
         // Update velocity
         velocity[0] += ax * timeStep;
         velocity[1] += ay * timeStep;
